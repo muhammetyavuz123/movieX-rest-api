@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors");
 const app = express();
 
 const MONGODB_URL = require("./config/mongodb");
@@ -19,6 +20,7 @@ app.use(express.json());
 
 app.use("/movies", movieRoutes);
 app.use("/actors", actorRoutes);
+app.use(cors());
 
 const PORT = process.env.PORT || 3000;
 
